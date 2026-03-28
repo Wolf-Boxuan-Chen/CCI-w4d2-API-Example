@@ -1,6 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+#earth-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('earth in sapce_edited.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+#comet-container {
+    position: fixed;
+    top: 50px;
+    animation: cometFly 8s infinite linear;
+}
+
+#comet {
+    width: 100px;
+    height: auto;
+}
+
+#survival-button {
+    position: absolute;
+    top: 20px;
+    left: 110px;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#survival-button:hover {
+    background-color: #ff5252;
+}
+
+#artists-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.artist {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+@keyframes cometFly {
+    0% {
+        right: -150px;
+    }
+    100% {
+        right: calc(100vw + 150px);
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
+}
+
 .craft {
     float: left;
-    display: inline-block;
 }
 
 #craft-iss {
