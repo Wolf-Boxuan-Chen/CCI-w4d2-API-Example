@@ -19,9 +19,18 @@
   <body>
     <img id="earth-background" src="earth in sapce_edited.png" alt="earth in space" />
     <img id="comet-container" src="comet.png" alt="comet" />
-    <h1>All of us will die. None of us will live.</h1>
-    <p id="status">Oh wait, a lucky few will survive.</p>
-    <button onclick="checkForAstronauts(this)">Who will survive?</button>
+    <div id="comet-popup" class="comet-popup"></div>
+
+    <!-- Question Modal -->
+    <div id="question-modal" class="modal">
+      <div class="modal-content">
+        <p>Do you want to help Comet Everest?</p>
+        <div class="modal-buttons">
+          <button id="yes-button" class="modal-btn yes-btn">I would do anything</button>
+          <button id="no-button" class="modal-btn no-btn">No</button>
+        </div>
+      </div>
+    </div>
 
     <div id="craft-iss" class="craft"></div>
     <div id="craft-tiangong" class="craft"></div>
