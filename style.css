@@ -23,15 +23,13 @@ body {
 }
 
 #comet-container {
+    width: 100px;
+    height: auto;
     position: fixed;
     top: 50px;
     animation: cometFly 8s infinite linear;
 }
 
-#comet {
-    width: 100px;
-    height: auto;
-}
 
 #survival-button {
     position: absolute;
@@ -92,7 +90,8 @@ body {
 }
 
 .craft {
-    float: left;
+    display: block;
+    margin-bottom: 20px;
 }
 
 #craft-iss {
