@@ -180,7 +180,7 @@ function showVictoryScreen() {
     // Create and show victory message
     const victoryMsg = document.createElement("div");
     victoryMsg.classList.add("victory-message");
-    victoryMsg.textContent = "you've saved lil comet/ congrats on getting a second moon";
+    victoryMsg.textContent = "you've saved lil comet! congrats on getting a second moon!";
     document.body.appendChild(victoryMsg);
     
     setTimeout(() => {
