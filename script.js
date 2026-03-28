@@ -1,6 +1,7 @@
 const spaceContainerISS = document.getElementById("craft-iss");
 const spaceContainerTian = document.getElementById("craft-tiangong");
 const allCrafts = document.querySelectorAll(".craft");
+const statusDisplay = document.getElementById("status-display");
 
 const cometTexts = [
     "help!",
@@ -10,14 +11,15 @@ const cometTexts = [
     "people are trying to destroy me",
     "because i get too close to earth",
     "but i promise i'll never hit you.",
-    "com'on, don't you want another moon?",
     "help!",
     "they've sent people up to space to try and stop me",
-    "can you stop them?"
+    "can you stop them?",
+    "com'on, don't you want another moon?",
 ];
 
 let cometTextIndex = 0;
 let textCycleCount = 0;
+let astronautCount = 0;
 
 // Modal setup
 const modal = document.getElementById("question-modal");
@@ -118,6 +120,9 @@ function displayAstronauts(astros) {
     spaceContainerISS.innerHTML = "";
     spaceContainerTian.innerHTML = "";
     
+    astronautCount = astros.length;
+    updateStatusDisplay();
+    
     astros.forEach(astro => {
         let div = document.createElement("div");
         div.classList.add("astro");
@@ -134,6 +139,15 @@ function displayAstronauts(astros) {
             
             // Remove the astronaut
             div.remove();
+            
+            // Decrease count and update display
+            astronautCount--;
+            updateStatusDisplay();
+            
+            // Check if all astronauts are ejected
+            if (astronautCount === 0) {
+                showVictoryScreen();
+            }
         });
         
         spaceContainerISS.appendChild(div);
@@ -143,4 +157,33 @@ function displayAstronauts(astros) {
         //     spaceContainerTian.appendChild(div);
         // }
     });
+}
+
+// Update status display with current astronaut count
+function updateStatusDisplay() {
+    if (astronautCount > 0) {
+        statusDisplay.textContent = `get rid off the ${astronautCount} asstronauts in the way of lil comet`;
+    }
+}
+
+// Show victory screen with moon and message
+function showVictoryScreen() {
+    statusDisplay.innerHTML = "";
+    
+    // Show moon image
+    const moonImage = document.getElementById("moon-image");
+    moonImage.classList.remove("hidden");
+    setTimeout(() => {
+        moonImage.classList.add("show");
+    }, 100);
+    
+    // Create and show victory message
+    const victoryMsg = document.createElement("div");
+    victoryMsg.classList.add("victory-message");
+    victoryMsg.textContent = "you've saved lil comet/ congrats on getting a second moon";
+    document.body.appendChild(victoryMsg);
+    
+    setTimeout(() => {
+        victoryMsg.classList.add("show");
+    }, 500);
 }
